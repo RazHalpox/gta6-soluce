@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Soluce GTA 6 en français — sommaire des missions</title>
+<meta name="theme-color" content="#1a0b2e">
+<style>
+:root{
+  --bg:#12081f; --bg2:#1c0f30; --card:#221338; --line:#3a2558;
+  --txt:#f4ecff; --mute:#b39dd1; --pink:#ff4fa3; --orange:#ff9a3c; --cyan:#3ee0d0;
+  --jason:#4aa8ff; --lucia:#ff6fb5;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--txt);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;-webkit-text-size-adjust:100%}
+a{color:inherit}
+header{
+  padding:calc(28px + env(safe-area-inset-top)) 18px 22px;
+  background:linear-gradient(160deg,#ff4fa3 0%,#ff9a3c 45%,#6b2bd9 100%);
+  position:relative;overflow:hidden
+}
+header{padding-bottom:56px}
+header::after{content:"";position:absolute;inset:auto -20% -40px -20%;height:70px;background:var(--bg);border-radius:50% 50% 0 0/100% 100% 0 0}
+header h1{margin:0;font-size:30px;line-height:1.05;font-weight:900;letter-spacing:-.5px;text-shadow:0 2px 12px rgba(0,0,0,.25)}
+header p{margin:8px 0 0;font-size:14px;opacity:.95;max-width:560px}
+.wrap{max-width:820px;margin:0 auto;padding:0 14px 60px;position:relative;z-index:1}
+.tabs{display:flex;gap:6px;overflow-x:auto;padding:4px 0 10px;scrollbar-width:none;position:sticky;top:0;background:var(--bg);z-index:5}
+.tabs::-webkit-scrollbar{display:none}
+.tab{flex:0 0 auto;border:1px solid var(--line);background:var(--bg2);color:var(--mute);padding:9px 14px;border-radius:999px;font-size:14px;font-weight:600;cursor:pointer}
+.tab.on{background:var(--pink);border-color:var(--pink);color:#fff}
+.tools{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 14px}
+.search{flex:1 1 100%;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:var(--bg2);color:var(--txt);font-size:16px}
+.chip{border:1px solid var(--line);background:var(--bg2);color:var(--mute);padding:7px 12px;border-radius:999px;font-size:13px;cursor:pointer}
+.chip.on{color:#fff;border-color:var(--cyan);background:rgba(62,224,208,.15)}
+.progress{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin-bottom:14px}
+.bar{height:8px;background:#2d1b47;border-radius:9px;overflow:hidden;margin-top:8px}
+.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--pink),var(--orange));transition:width .3s}
+.progress small{color:var(--mute)}
+details.ch{background:var(--card);border:1px solid var(--line);border-radius:16px;margin-bottom:12px;overflow:hidden}
+details.ch>summary{list-style:none;cursor:pointer;padding:14px 16px;display:flex;align-items:center;gap:10px}
+details.ch>summary::-webkit-details-marker{display:none}
+.ch h2{margin:0;font-size:18px;flex:1}
+.ch h2 span{display:block;font-size:12px;font-weight:500;color:var(--orange);letter-spacing:.3px;text-transform:uppercase;margin-bottom:2px}
+.count{font-size:12px;color:var(--mute);white-space:nowrap}
+.arrow{transition:transform .2s;color:var(--mute)}
+details[open] .arrow{transform:rotate(90deg)}
+.sub{padding:8px 16px 4px;font-size:12px;color:var(--cyan);text-transform:uppercase;letter-spacing:.5px;font-weight:700;border-top:1px solid var(--line)}
+ul{list-style:none;margin:0;padding:0}
+li.m{display:flex;align-items:center;gap:10px;padding:10px 16px;border-top:1px solid rgba(58,37,88,.6)}
+li.m.done .t{opacity:.45;text-decoration:line-through}
+.ck{appearance:none;-webkit-appearance:none;flex:0 0 22px;height:22px;border-radius:7px;border:2px solid var(--line);background:transparent;cursor:pointer;display:grid;place-content:center}
+.ck:checked{background:var(--cyan);border-color:var(--cyan)}
+.ck:checked::after{content:"✓";color:#12081f;font-weight:900;font-size:14px}
+.num{font-size:12px;color:var(--mute);width:22px;text-align:right;flex:0 0 auto}
+.lnk{flex:1;text-decoration:none;min-width:0}
+.t{font-weight:650;font-size:15px}
+.en{display:block;font-size:12px;color:var(--mute);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.b{display:inline-block;font-size:10.5px;font-weight:700;padding:2px 7px;border-radius:6px;margin-left:6px;vertical-align:2px}
+.b.o{background:#3a2558;color:#d9c7f2}
+.b.J{background:rgba(74,168,255,.18);color:var(--jason)}
+.b.L{background:rgba(255,111,181,.18);color:var(--lucia)}
+.b.M{background:rgba(255,154,60,.2);color:var(--orange)}
+.b.S{background:#2d3b55;color:#cfe0ff}
+.b.H{background:rgba(62,224,208,.15);color:var(--cyan)}
+.go{color:var(--pink);font-size:18px;flex:0 0 auto}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:0}
+.grid li.m{border-right:0}
+.note{background:var(--bg2);border:1px dashed var(--line);border-radius:14px;padding:12px 14px;font-size:13px;color:var(--mute);margin:16px 0;line-height:1.5}
+.note b{color:var(--txt)}
+.empty{text-align:center;color:var(--mute);padding:30px 0;display:none}
+footer{font-size:12px;color:var(--mute);text-align:center;padding:20px 10px 40px;line-height:1.6}
+.hide{display:none!important}
+</style>
+</head>
+<body>
+<header>
+  <h1>Soluce GTA 6<br>en français</h1>
+  <p>Toutes les missions avec leurs noms français officiels. Touche une mission pour ouvrir sa soluce complète, traduite automatiquement en français.</p>
+</header>
+
+<div class="wrap">
+  <nav class="tabs" id="tabs"></nav>
+
+  <div id="view-missions">
+    <div class="tools">
+      <input class="search" id="q" type="search" placeholder="Rechercher une mission (français ou anglais)…" autocomplete="off">
+      <button class="chip" data-f="J">Jason</button>
+      <button class="chip" data-f="L">Lucia</button>
+      <button class="chip" data-f="hideopt">Masquer les facultatives</button>
+      <button class="chip" data-f="hidedone">Masquer les terminées</button>
+    </div>
+    <div class="progress"><b id="pct">0 %</b> <small id="pcount"></small><div class="bar"><i id="pbar"></i></div></div>
+    <div id="chapters"></div>
+    <div class="empty" id="empty">Aucune mission trouvée.</div>
+  </div>
+
+  <div id="view-annexes" class="hide"><div id="sides"></div></div>
+  <div id="view-guides" class="hide"><div id="guides"></div></div>
+
+  <div class="note">
+    <b>Bon à savoir :</b> les noms des missions sur cette page sont les noms français officiels du jeu. Les soluces s'ouvrent sur PowerPyx avec une traduction automatique Google : dedans, le texte peut appeler une mission par une traduction mot à mot. Le nom anglais en gris sous chaque mission t'aide à t'y retrouver.<br><br>
+    <b>Pastilles :</b> <span class="b o">Facultative</span> <span class="b J">Jason</span> <span class="b L">Lucia</span> <span class="b M">Manquable</span> <span class="b S">Solo</span> <span class="b H">Braquage</span>
+  </div>
+</div>
+
+<footer>
+  Les soluces sont écrites par <a href="https://www.powerpyx.com/gta-6-full-walkthrough-all-missions/" target="_blank" rel="noopener">PowerPyx</a> et traduites par Google Traduction.<br>
+  Sommaire non officiel. GTA VI est une marque de Rockstar Games / Take-Two.<br>
+  Ta progression est enregistrée sur cet appareil.
+</footer>
+
+<script>
+// Data: [nom FR, nom EN, chemin PowerPyx après "gta-6-", pastilles]
+// Pastilles: o=facultative J=Jason L=Lucia M=manquable/limitée dans le temps S=solo H:<braquage>
+const W = "-walkthrough/";
+const CHAPTERS = [
+ {id:"p", name:"Prologue", sub:"", m:[
+  ["Prologue","Prologue","prologue"+W,""]
+ ]},
+ {id:"c1", name:"Chapitre 1", sub:"Just Like Paradise", m:[
+  ["Partie de pêche","Gone Fishing","gone-fishing"+W,""],
+  ["Aux armes","Gear Up","gear-up-pick-up-another-gun"+W,""],
+  ["Frais de labo","Lab Fees","lab-fees-collect-brians-rent"+W,""],
+  ["Juste une égratignure","Just a Scratch","just-a-scratch-fix-your-car"+W,""],
+  ["Attention indésirable","Unwanted Attention","unwanted-attention-go-see-cal"+W,""],
+  ["Plomberie","Pipework","pipework-collect-mandys-rent"+W,""],
+  ["Récupérer le rhum de Shirley","Get Shirley's Rum","get-shirleys-rum"+W,"o"],
+  ["Voler le scooter","Steal the Scooter","steal-the-scooter"+W,"o"],
+  ["Hé, Arnold !","Hey Arnold!","hey-arnold-meet-brian"+W,""],
+  ["Island Dreams","Island Dreams","island-dreams-work-for-kenton"+W,""],
+  ["Feng Shui","Feng Shui","feng-shui-meet-cal"+W,""],
+  ["Faire des courses / Déposer les courses","Pick up Groceries & Drop Off Groceries","pick-up-groceries"+W,"o"],
+  ["Acheter des fleurs","Buy Flowers","buy-flowers"+W,"o"],
+  ["Acheter un collier à Lucia","Buy Lucia a Necklace","buy-lucia-a-necklace"+W,"o"],
+  ["Un coup de ciseaux","Get The Chop","get-the-chop"+W,"o"],
+  ["Récupérer les vêtements de Lucia","Get Lucia's Clothes","get-lucias-clothes"+W,"o"],
+  ["Enfin libre","Coming Home","coming-home-lucias-release"+W,""],
+  ["Nettoyer après Donnie","Clean Up After Donnie","clean-up-after-donnie-donnies-drop"+W,""],
+  ["BuckMe","Buck Me","buck-me-set-up-bank-account"+W,""],
+  ["Terre à terre","Down to Earth","down-to-earth"+W,""],
+  ["Déposer de l'argent sur BuckMe","Deposit Cash Into BuckMe","deposit-cash-into-buckme"+W,""],
+  ["Épargner pour l'avenir","Save for the Future","save-for-the-future"+W,""],
+  ["Trouver la drogue perdue","Find the Lost Drugs","find-the-lost-drugs"+W,"o"],
+  ["Permission de sortie","Day Release","day-release-meet-mattia-kat"+W,""],
+  ["Retour chez soi","Clock Out","clock-out"+W,"o"],
+  ["Ciel dégagé","Clear Skies","clear-skies-join-donnie-on-a-job"+W,""],
+  ["Une vie à construire","Building a Life","building-a-life"+W,""],
+  ["Bourbier","Swamped","swamped"+W,""],
+  ["Bye bye Don","Don Gone","don-gone-head-to-donnies-trailer"+W,""],
+  ["Drogue perdue de Donnie","Donnie's Lost Drugs","donnies-lost-drugs"+W,""],
+  ["Recalibrage","Recalibration","recalibration-talk-to-lucia"+W,""],
+  ["Piège à touristes","Tourist Trap","tourist-trap-take-up-mattias-offer"+W,""],
+  ["Home Sweet Home","Home Sweet Home","home-sweet-home"+W,""],
+  ["Sortie d'hôpital","Discharge Time","discharge-time"+W,""]
+ ]},
+ {id:"c2", name:"Chapitre 2", sub:"Paradise Lost", m:[
+  ["Y a quoi dans le sac ?","What's in the Bag?","whats-in-the-bag"+W,""],
+  ["Prendre soin de Jason","Take Care of Jason","take-care-of-jason"+W,""],
+  ["Tarif de nuit","Overnight Charges","overnight-charges-see-linda-the-manager"+W,""],
+  ["Nouvelle adresse","Just Moved In","just-moved-in"+W,""],
+  ["Virée entre filles","Girls' Trip","girls-trip-find-painkillers"+W,""],
+  ["Récupérer une arme","Pick Up A Gun","pick-up-a-gun"+W,"o"],
+  ["Moses","Moses","moses-take-a-vehicle-to-moses"+W,""],
+  ["Nouveau style","New Look","new-look"+W,""],
+  ["Comment tu me trouves ?","How Do I Look?","how-do-i-look"+W,""],
+  ["Fournisseur d'antidouleurs","Painkiller Supplier","painkiller-supplier"+W,""],
+  ["Traque d'ambulance","Ambulance Chaser","ambulance-chaser-move-the-ambulance"+W,""],
+  ["Aller voir la ferme McKittrick","Check Out McKittrick Farm","check-out-mckittrick-farm"+W,"o"],
+  ["Retard de paiement","Behind on Payments","behind-on-payments"+W,""],
+  ["Et moi Dunk !","Slam Dunk","slam-dunk"+W,""],
+  ["Récupérer des produits chimiques pour Kyle","Collect Chemicals for Kyle","collect-chemicals-for-kyle"+W,"o"],
+  ["Véhicule quotidien","Daily Driver","daily-driver-steal-the-crawler-for-moses"+W,""],
+  ["Course matinale","Breakfast Run","breakfast-run-check-on-jason"+W,""],
+  ["Pause café","Coffee Break","coffee-break"+W,""],
+  ["Thrillbilly","Thrillbillies","thrillbillies-check-out-the-mud-club"+W,"o"],
+  ["Self-défense","Twist Wrist, Smash, Grab","twist-wrist-smash-grab-join-billy-on-a-job"+W,"o"],
+  ["Braquer Avery Pawn","Hit Avery Pawn","hit-avery-pawn"+W,"o"],
+  ["Braquer le Kingpin Bowling","Hit Kingpin Bowling","hit-kingpin-bowling"+W,"o"],
+  ["Véhicule en fourrière","Impounded Vehicle","impounded-vehicle"+W,"o"],
+  ["Préparez-vous pour Vice City","Prepare for Vice City","prepare-for-vice-city"+W,""],
+  ["Label vétéran","Veteran Hunted","veteran-hunted-meet-bret"+W,"o J"],
+  ["Délits et délices","Afternoon Delight","afternoon-delight-rob-vickis-boss"+W,""],
+  ["Heurts de départ","Checking Out","checking-out-move-to-vice-city"+W,""]
+ ]},
+ {id:"c3", name:"Chapitre 3", sub:"Vice City", m:[
+  ["Bienvenue à Vice City","Welcome to Vice City","welcome-to-vice-city"+W,""],
+  ["Came de choix","Dealer's Choice","dealers-choice-go-see-drequan"+W,"J"],
+  ["Origine douteuse","Dubious Provenance","dubious-provenance-visit-the-antique-store"+W,""],
+  ["Mami a toujours raison","Mami Knows Best","mami-knows-best-catch-up-with-mia"+W,"L"],
+  ["Obtenir un véhicule","Get Your Wheels","get-your-wheels"+W,"o"],
+  ["Rejoindre une course de rue","Join a Street Race","join-a-street-race"+W,"o"],
+  ["Litière cachottière","Here, Kitty Kitty","here-kitty-kitty-speak-with-tyrone"+W,"J"],
+  ["Envoyer de l'argent à Lorena","Send Money to Lorena","send-money-to-lorena"+W,""],
+  ["Disque dur chiffré","Encrypted Hard Drive","encrypted-hard-drive"+W,""],
+  ["Boobie Time","Boobie Time","boobie-time-talk-to-boobie"+W,"J"],
+  ["Aller voir Kyle","Buddy?","buddy-check-on-kyle"+W,"o"],
+  ["Rencontre avec les Heder","Meet the Heders","meet-the-heders"+W,""],
+  ["Braquages de bijouteries avec Yasmani","Yasmani's Jewelry Jobs","yasmanis-jewelry-jobs"+W,""],
+  ["Cul à cul","Bumper to Bumper","bumper-to-bumper-mentor-yago"+W,"o J"],
+  ["Service de voiture","Car Service","car-service-steal-the-car-for-raul"+W,"L"],
+  ["Envoyer plus d'argent à Lorena","Send More Money to Lorena","send-more-money-to-lorena"+W,""],
+  ["En vedette","Top Billing","top-billing-watch-the-real-dimez"+W,""],
+  ["Premières impressions","First Impressions","first-impressions-meeting-with-raul"+W,""],
+  ["Crosstown Traffic","Crosstown Traffic / Meet Karim","crosstown-traffic-meet-raul"+W,""],
+  ["Enquête de solvabilité","Credit Check","credit-check-meet-rauls-crew"+W,""],
+  ["Cloner des clés, toucher du blé","Clonin' Keys, Makin' GS","clonin-keys-makin-gs-steal-the-zorrusso-for-randy"+W,""],
+  ["Conduire ou mourir","Ride Or Die","ride-or-die-meet-drequan"+W,"J"],
+  ["Prochain boulot de Raul","Raul's Next Job","rauls-next-job"+W,""],
+  ["La course contre Yago","Race Against Yago","race-against-yago"+W,"o M"],
+  ["Sinfrontera National Bank","Sinfrontera National Bank","sinfrontera-national-bank-scope-out-the-bank"+W,"H:Le coup du cartel"],
+  ["Experte en sécurité","Security Expert","security-expert"+W,"H:Le coup du cartel"],
+  ["La main dans le sac","Caught Slipping","caught-slipping"+W,""],
+  ["Planification du braquage","Heist Planning","heist-planning"+W,"H:Le coup du cartel"],
+  ["En bonne compagnie","Company Property","company-property"+W,"H:Le coup du cartel"],
+  ["Un plan bien monté","Safe Word","safe-word-steal-the-practice-safe"+W,"H:Le coup du cartel"],
+  ["Le chaînon manquant","The Missing Link","the-missing-link-meet-andrea"+W,"L H:Le coup du cartel"],
+  ["Les glandeurs","Mall Rats","mall-rats"+W,"o S"],
+  ["De frère à frère","Brother To Brother","brother-to-brother-back-up-yago"+W,"o"],
+  ["Cooties","Cooties","cooties-shoot-the-music-video"+W,""],
+  ["Explosifs cachés","Hidden Charges","hidden-charges"+W,"H:Le coup du cartel"],
+  ["Une banlieue came","Bricked Up","bricked-up-return-to-the-apartment"+W,""],
+  ["Urgence immobilière","South Leonida Real Estate","south-leonida-real-estate-meet-mia"+W,"L"],
+  ["Le coup du cartel","The Cartel Heist","the-cartel-heist"+W,"H:Le coup du cartel"]
+ ]},
+ {id:"c4", name:"Chapitre 4", sub:"", m:[
+  ["Ocean Beach","Ocean Beach","ocean-beach"+W,""],
+  ["Une autre vie","Another Life","another-life"+W,""],
+  ["Journée piscine","Pool Day","pool-day"+W,""],
+  ["Voitures de fonction","Company Cars","company-cars-speak-to-the-concierge"+W,""],
+  ["Avocat","Lawyer Up","lawyer-up-meet-abe-gonzalez"+W,""],
+  ["Poids lourd","Heavy Lifting","heavy-lifting-bring-raul-the-hard-drive"+W,""],
+  ["Rendez-vous","It's A Date!","its-a-date"+W,"o"],
+  ["Fête de cristal","Party Hard","party-hard-work-personal-security"+W,""],
+  ["Payer les frais d'Abe","Pay Abe's Fee","pay-abes-fee"+W,""],
+  ["Shooting photo","Photo/Shoot","photoshoot-shoot-a-promo"+W,""],
+  ["Vilain pilote !","Bad Driver!","bad-driver-find-felipe"+W,"o"],
+  ["Assister à la fête d'Eddie Acosta","Attend Eddie Acosta's Party","attend-eddie-acostas-party"+W,"o S"],
+  ["Prise de masse","Making Gainz","making-gainz"+W,"L H:Trafic aérien"],
+  ["Sang, sueur et gros calibres","Blood Sweat and Gear","blood-sweat-and-gear-work-out"+W,"L H:Trafic aérien"],
+  ["Bagage encombrant","Too Much Baggage","too-much-baggage-scope-out-the-airport"+W,"J H:Trafic aérien"],
+  ["Montre en main","Watch It","watch-it"+W,"J"],
+  ["Amat'heure","Amateur Hour","amateur-hour"+W,"L H:Trafic aérien"],
+  ["Appeler Nate","Call Nate","call-nate"+W,"L H:Trafic aérien"],
+  ["Afflux de liquidités","Cash Injections","cash-injections-hang-out-with-nate"+W,"L H:Trafic aérien"],
+  ["Sale boulot","Dirty Work","dirty-work-deal-with-raina"+W,"H:Trafic aérien"],
+  ["Nate vous recontactera","Nate Will Be in Touch","nate-will-be-in-touch"+W,"H:Trafic aérien"],
+  ["Babysitting nocturne","Adventures in Babysitting","adventures-in-babysitting-work-security-for-andres"+W,"J"],
+  ["L'enlèvement de Rafa","Rafa's Kidnapping","rafas-kidnapping"+W,"J"],
+  ["Nouvelles pièces à conviction","Fresh Evidence","fresh-evidence"+W,"J"],
+  ["Jeu d'enfant","Child's Play","childs-play-rescue-rafa-from-kidnappers"+W,""],
+  ["Ceci est un appel gratuit de…","This is a Free Call From…","this-is-a-free-call-from-pick-up-shayna"+W,"o L M"],
+  ["Mise à sac musclée","Power Play","power-play-help-kordells-crew"+W,"L H:Trafic aérien"],
+  ["Surveillance rapprochée","Close Surveillance","close-surveillance-spy-on-the-bodybuilders"+W,"J H:Trafic aérien"],
+  ["Méthode de livraison","Delivery Method","delivery-method-help-andrea"+W,"J H:Trafic aérien"],
+  ["Une équipe en béton","Team Building","team-building-meet-kordell"+W,"L H:Trafic aérien"],
+  ["Restauration complète","Fully Catered","fully-catered-steal-a-catering-truck"+W,"H:Trafic aérien"],
+  ["Plans du braquage en place","Heist Plans in Place","heist-plans-in-place"+W,"H:Trafic aérien"],
+  ["Têtes d'affiche","Headliners","headliners-help-with-the-launch-party"+W,""],
+  ["Trafic aérien","VCIA Takedown","vcia-takedown"+W,"H:Trafic aérien"],
+  ["Des détails à régler","Tie Up Loose Ends","tie-up-loose-ends"+W,""],
+  ["C'est là qu'est le fric…","That's Where The Money Is…","thats-where-the-money-is-wait-at-the-cafe"+W,"o"],
+  ["Rappeler Valentina","Call Valentina Back","call-valentina-back"+W,""],
+  ["La dernière chevauchée","Sunset","sunset-stop-by-the-front-desk"+W,""],
+  ["Repartir de zéro","Starting From Zero","starting-from-zero"+W,""]
+ ]},
+ {id:"c5", name:"Chapitre 5", sub:"", m:[
+  ["Vol de coucou","Bird in the Hand","bird-in-the-hand"+W,""],
+  ["En quête de liberté","Taking Liberties","taking-liberties"+W,""],
+  ["Flair marin","Doggie Bag","doggie-bag-meet-vinny"+W,""],
+  ["VC Baby","VC Baby","vc-baby-talk-to-mattia"+W,""],
+  ["Opération Savage Glory","Operation Savage Glory","operation-savage-glory"+W,""],
+  ["Abe l'Honnête","Honest Abe","honest-abe-negotiate-a-deal-with-abe"+W,""],
+  ["Affaire inachevée","Unfinished Business","unfinished-business"+W,""],
+  ["Payer les frais d'Abe","Pay Abe's Fee (Chapter 5)","pay-abes-fee-walkthrough-chapter-5/",""],
+  ["Garde préventive","Protective Custody","protective-custody"+W,""],
+  ["La fin du chemin","The End of the Road","the-end-of-the-road"+W,""],
+  ["Les fins du jeu","Endings","all-endings-guide/",""]
+ ]}
+];
+
+// Inconnus et détraqués (Strangers & Freaks) — [FR, EN, chemin|null, pastilles]
+const IDX = "all-strangers-freaks-side-missions/";
+const SIDES = [
+ {who:"Shirley", ch:"Chapitre 1", trophy:false, m:[
+  ["Récupérer le rhum de Shirley","Get Shirley's Rum","get-shirleys-rum"+W],
+  ["Voler le scooter","Steal the Scooter","steal-the-scooter"+W]]},
+ {who:"Kenton", ch:"Chapitre 1", trophy:null, m:[
+  ["Fouiller les sites de plongée","Search the Dive Sites",null]]},
+ {who:"Cal", ch:"Chapitre 1", trophy:false, m:[
+  ["Pêcher un poisson plus gros","Catch a Bigger Fish","catch-a-bigger-fish"+W]]},
+ {who:"Kirk", ch:"Chapitre 1", trophy:true, m:[
+  ["Aider à chercher le singe-qui-pue","Search for the Skunk Ape","search-for-the-skunk-ape"+W],
+  ["Chercher les effigies dans les arbres","Search for Tree Effigies","search-for-tree-effigies-locations"+W],
+  ["Aider Kirk à trouver M. Mangrove","Help Kirk Find Mr. Mangrove","help-kirk-find-mr-mangrove"+W]]},
+ {who:"Kyle", ch:"Chapitre 2", trophy:true, m:[
+  ["Aller voir la ferme McKittrick","Check Out McKittrick Farm","check-out-mckittrick-farm"+W],
+  ["Récupérer des produits chimiques pour Kyle","Collect Chemicals for Kyle","collect-chemicals-for-kyle"+W],
+  ["Aller voir Kyle","Buddy?","buddy-check-on-kyle"+W]]},
+ {who:"Alvan", ch:"Chapitre 2", trophy:true, m:[
+  ["Gellhorn's Missing Tourists","Gellhorn's Missing Tourists","gellhorns-missing-tourists"+W],
+  ["Missing Person","Missing Person","missing-person-return-to-the-trophy-room"+W]]},
+ {who:"Moses", ch:"Chapitre 2", trophy:false, m:[
+  ["Voler des véhicules pour Moses","Steal Vehicles for Moses","steal-vehicles-for-moses"+W],
+  ["Récupérer le cadeau de Moses","Collect Moses' Gift","collect-moses-gift"+W]]},
+ {who:"Bret Vogel", ch:"Chapitre 2", trophy:null, m:[
+  ["Label vétéran","Veteran Hunted","veteran-hunted-meet-bret"+W,"J"],
+  ["Listes de chasse de Bret","Bret's Hunting Decks",null]]},
+ {who:"Billy", ch:"Chapitre 2", trophy:false, m:[
+  ["Thrillbilly","Thrillbillies","thrillbillies-check-out-the-mud-club"+W],
+  ["Self-défense","Twist Wrist, Smash, Grab","twist-wrist-smash-grab-join-billy-on-a-job"+W],
+  ["Les glandeurs","Mall Rats","mall-rats"+W],
+  ["L'Impaler","The Impaler","the-impaler-steal-the-impaler"+W],
+  ["Héros locaux","Hometown Heroes","hometown-heroes"+W]]},
+ {who:"Yago", ch:"Chapitre 3", trophy:true, m:[
+  ["Rejoindre une course de rue","Join a Street Race","join-a-street-race"+W],
+  ["Cul à cul","Bumper to Bumper","bumper-to-bumper-mentor-yago"+W,"J"],
+  ["La course contre Yago","Race Against Yago","race-against-yago"+W,"M"],
+  ["De frère à frère","Brother to Brother","brother-to-brother-back-up-yago"+W,"J"]]},
+ {who:"Andy et Cecilia", ch:"Chapitre 3", trophy:false, m:[
+  ["Gravir la Cellerichaîne","Climbing the Cellerichain","climbing-the-cellerichain"+W,"L"],
+  ["Payer les frais d'initiation de Cellerica","Pay the Cellerica Fee","pay-the-cellerica-fee"+W,"L"],
+  ["PÊCHE !","Peach!","peach-join-the-cellerica-initiation"+W,"L"],
+  ["Lire l'étiquette","Read the Label","read-the-label-retrieve-the-cellerica-van"+W,"L"],
+  ["Fais tourner","Puff Puff Pass","puff-puff-pass-meet-at-the-warehouse"+W,"L"]]},
+ {who:"Yasmani", ch:"Chapitre 3", trophy:false, m:[
+  ["Braquages de bijouteries avec Yasmani","Yasmani's Jewelry Jobs","yasmanis-jewelry-jobs"+W],
+  ["Braquages de distributeurs pour Yasmani","Yasmani's ATM Jobs",null],
+  ["Braquages des prêteurs sur salaire avec Yasmani","Yasmani's Payday Loans Jobs",null],
+  ["Suivre le fourgon de sécurité","Tail the Security Van",null]]},
+ {who:"Randy", ch:"Chapitre 3", trophy:null, m:[
+  ["Liste de souhaits de Randy","Randy's Wish List",null]]},
+ {who:"Tyrone", ch:"Chapitre 3", trophy:false, m:[
+  ["Détruire les labos de litière","Take Out Kitty Litter","all-kitty-litter-lab-locations/"],
+  ["Spin On This","Spin On This","spin-on-this-shut-down-the-labs"+W]]},
+ {who:"Dunk", ch:"Chapitre 3", trophy:null, m:[
+  ["Tuyaux de Dunk pour des cambriolages","Dunk's Robbery Tips",null]]},
+ {who:"Papa Audacity", ch:"Chapitre 3", trophy:true, m:[
+  ["The Unknown Stuntman","The Unknown Stuntman","the-unknown-stuntman"+W],
+  ["Trial by Tire","Trial by Tire","trial-by-tire-meet-the-audacity-engineer"+W],
+  ["Quit Your Job, Sell Your House","Quit Your Job, Sell Your House","quit-your-job-sell-your-house-help-papa-audacity"+W],
+  ["AudaCity Stunts","AudaCity Stunts","audacity-stunts"+W],
+  ["Catching a Whale","Catching a Whale","catching-a-whale-help-papa-audacity"+W],
+  ["The Audacity","The Audacity","the-audacity-attend-the-launch-party"+W]]},
+ {who:"Eddie Acosta", ch:"Chapitre 4", trophy:false, m:[
+  ["Assister à la fête d'Eddie Acosta","Attend Eddie Acosta's Party","attend-eddie-acostas-party"+W]]},
+ {who:"Pete le pilote", ch:"Chapitre 4", trophy:true, m:[
+  ["Le dernier kilomètre : passer le flambeau","The Last Mile: Passing the Torch","the-last-mile-passing-the-torch-recover-petes-plane"+W,"J"],
+  ["Le dernier kilomètre : pilote de rechange","The Last Mile: Backseat Pilot","the-last-mile-backseat-pilot-deliver-packages"+W,"J"],
+  ["Livraisons de Pete — Aérodrome de Southpoint","Pete's Deliveries: Southpoint Airfield","petes-deliveries-southpoint-airfield-avery-allen-co"+W,"J"],
+  ["Livraisons de Pete — Avery Allen & Co.","Pete's Deliveries: Avery Allen & Co.","petes-deliveries-southpoint-airfield-avery-allen-co"+W+"#avery-allen","J"],
+  ["Livrer les colis","Deliver Packages","petes-deliveries-southpoint-airfield-avery-allen-co"+W+"#deliver-packages","J"]]},
+ {who:"Shayna", ch:"Chapitre 4", trophy:false, m:[
+  ["Ceci est un appel gratuit de…","This is a Free Call From…","this-is-a-free-call-from-pick-up-shayna"+W,"L M"]]},
+ {who:"Dr Merle (No Flushers)", ch:"Tous chapitres", trophy:true, m:[
+  ["The Final Flush","The Final Flush","the-final-flush-meet-at-franks-waffles"+W]]},
+ {who:"Freddie", ch:"Tous chapitres", trophy:true, m:[
+  ["Retest Freddie's Defenses","Retest Freddie's Defenses","retest-freddies-defenses"+W]]}
+];
+
+const GUIDES = [
+ {t:"Guides principaux", g:[
+  ["Sommaire complet du guide GTA 6","guide/gta-6-grand-theft-auto-vi/",1],
+  ["Wiki GTA 6","grand-theft-auto-vi-wiki-strategy-guide/"],
+  ["Guide des trophées","grand-theft-auto-vi-trophy-guide-roadmap/"],
+  ["Checklist 100 %","100-completion-checklist-guide/"],
+  ["Tous les codes de triche","all-cheats/"],
+  ["Astuces et conseils","tips-tricks/"],
+  ["Gagner de l'argent rapidement","money-guide-how-to-get-money-fast/"],
+  ["Conduite automatique","how-to-use-autodrive-automatically-drive-anywhere/"],
+  ["Carte complète du monde","full-world-map-revealed/"],
+  ["Base de données des collectibles","collectible-guide-progress-database/"],
+  ["Tous les défis","all-challenges-guide/"],
+  ["Bonus de l'édition Ultimate","how-to-get-ultimate-edition-rewards/"],
+  ["Hélicoptères et avions","helicopter-plane-locations/"],
+  ["Tous les personnages","all-characters/"],
+  ["Toutes les missions Inconnus et détraqués","all-strangers-freaks-side-missions/"]
+ ]},
+ {t:"Cartes à collectionner", g:[
+  ["Toutes les séries de cartes","all-collectible-card-sets-locations/"],
+  ["Vice City Flamingos","vice-city-flamingos-collectible-card-set-locations/"],
+  ["Vice City Narcos","vice-city-narcos-collectible-card-set-locations/"],
+  ["Vice City Manatees","vice-city-manatees-collectible-card-set-locations/"],
+  ["Vice City Club De Fútbol","vice-city-club-de-futbol-collectible-card-set-locations/"],
+  ["Liberty City Swingers","liberty-city-swingers-collectible-card-set-locations/"],
+  ["Liberty City Penetrators","liberty-city-penetrators-collectible-card-set-locations/"],
+  ["Liberty City Wrath","liberty-city-wrath-collectible-card-set-locations/"],
+  ["Los Santos Corkers","los-santos-corkers-collectible-card-set-locations/"],
+  ["Los Santos Panic","los-santos-panic-collectible-card-set-locations/"],
+  ["Los Santos Pounders","los-santos-pounders-collectible-card-set-locations/"],
+  ["Backyard Wrestling","backyard-wrestling-collectible-card-set-locations/"],
+  ["America's Next Top Hooker","americas-next-top-hooker-collectible-card-set-locations/"],
+  ["Delights Dancers","delights-dancers-collectible-card-set-locations/"],
+  ["Jack of Hearts Dancers","jack-of-hearts-dancers-collectible-card-set-locations/"],
+  ["Nine1Nine Dancers","nine1nine-dancers-collectible-card-set-locations/"],
+  ["The Legend of Ratface","the-legend-of-ratface-collectible-card-set-locations/"],
+  ["Right Wing: America's Hero","right-wing-americas-hero-collectible-card-set-locations/"],
+  ["Ed Comics Universe","ed-comics-universe-collectible-card-set-locations/"]
+ ]},
+ {t:"Autres collectibles", g:[
+  ["Scans Waink (tous)","all-waink-scan-locations/"],
+  ["Scans Waink — Monuments","all-landmark-scan-locations/"],
+  ["Scans Waink — Curiosités","all-curiosities-scan-locations/"],
+  ["Scans Waink — Sculptures","all-sculptures-scan-locations/"],
+  ["Panneaux Peewees","all-peewees-billboard-locations/"],
+  ["Tags No Flusher","all-no-flusher-tag-utility-markings-locations/"],
+  ["Magazines, livres et BD","all-magazines-books-comics-locations/"],
+  ["Boîtes à livres","all-book-swap-locations/"],
+  ["Lieux de méditation","all-meditation-spot-locations/"],
+  ["Flamants de cocaïne","all-cocaine-flamingo-locations/"],
+  ["Playlists uniques","all-unique-playlist-collectible-locations/"],
+  ["Fresques 1010","all-1010-mural-locations/"]
+ ]},
+ {t:"Activités", g:[
+  ["Paniers de basket","all-basketball-hoop-locations/"],
+  ["Parcours de golf","all-golf-course-locations/"],
+  ["Adversaires au billard","all-pool-opponent-locations/"],
+  ["Courses uniques","all-unique-race-locations-racing-activities/"],
+  ["Défis de course — médailles d'or","all-race-challenge-locations-gold-medals/"],
+  ["Stand de tir — médailles d'or","all-shooting-range-gold-medal-challenges/"],
+  ["Jeux vidéo","all-video-game-locations/"],
+  ["Sauts cascades","all-stunt-jump-locations/"],
+  ["Vols en lame de couteau","all-knife-flight-locations/"],
+  ["Sauts en parachute (BASE jump)","all-base-jump-locations/"],
+  ["Courses de drones Top Fun","all-top-fun-drone-race-time-trial-locations/"]
+ ]},
+ {t:"Argent et braquages", g:[
+  ["Receleurs (revendre le butin)","all-fence-locations-how-to-fence-stolen-goods/"],
+  ["Opérations des gangs","all-illegal-gang-operations-locations/"],
+  ["Braquages de banques et coffres","all-bank-jobs-locations-bank-vaults/"],
+  ["Prêteurs sur salaire","all-payday-loans-jobs-locations/"],
+  ["Casse-vitrines (Smash 'n' Grab)","all-smash-n-grabs-locations/"]
+ ]},
+ {t:"Boutiques et services", g:[
+  ["Garages de tuning","all-mod-shops-locations/"],
+  ["Pay 'n' Spray","all-pay-n-spray-locations/"],
+  ["Stations-service","all-gas-stations-locations/"],
+  ["Stations de lavage","all-car-washes-locations/"],
+  ["Ammu-Nation (armureries)","all-ammu-nation-gun-stores-locations/"],
+  ["Garages","all-garage-locations/"],
+  ["Gares","all-train-stations-locations/"],
+  ["Terminaux de ferry","all-ferry-terminals-locations/"],
+  ["Magasins de vêtements","all-clothing-stores-locations/"],
+  ["Magasins de chaussures","all-footwear-stores-locations/"],
+  ["Coiffeurs et salons de beauté","all-hair-beauty-salon-locations/"],
+  ["Salons de tatouage","all-tattoo-studios-locations/"],
+  ["Magasins d'électronique","all-electronics-stores-locations/"],
+  ["Supérettes","all-convenience-stores-locations/"],
+  ["Fast-foods","all-fast-food-stores-locations/"],
+  ["Cafés et vente à emporter","all-cafes-takeout-locations/"],
+  ["Magasins d'alcool","all-liquor-stores-locations/"],
+  ["Bars","all-bar-locations/"],
+  ["Vendeurs de street food","all-street-food-vendors-locations/"]
+ ]}
+];
+
+// Lien traduit par Google
+function tr(path, raw){
+  const full = raw ? path : "gta-6-" + path;
+  const [p, hash] = full.split("#");
+  return "https://www-powerpyx-com.translate.goog/" + p + "?_x_tr_sl=en&_x_tr_tl=fr&_x_tr_hl=fr&_x_tr_pto=wapp" + (hash ? "#" + hash : "");
+}
+const esc = s => s.replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const norm = s => s.normalize("NFD").replace(/[̀-ͯ]/g,"").toLowerCase();
+
+// Progression (sur cet appareil)
+let done = {};
+try { done = JSON.parse(localStorage.getItem("gta6fr-done") || "{}"); } catch(e) {}
+const save = () => { try { localStorage.setItem("gta6fr-done", JSON.stringify(done)); } catch(e) {} };
+
+function badges(f){
+  if(!f) return "";
+  let out = "";
+  f.split(" ").forEach(x => {
+    if(x==="o") out += '<span class="b o">Facultative</span>';
+    else if(x==="J") out += '<span class="b J">Jason</span>';
+    else if(x==="L") out += '<span class="b L">Lucia</span>';
+    else if(x==="M") out += '<span class="b M">Manquable</span>';
+    else if(x==="S") out += '<span class="b S">Solo</span>';
+  });
+  const h = f.match(/H:(.+)$/);
+  if(h) out += '<span class="b H">' + esc(h[1]) + '</span>';
+  return out;
+}
+
+function row(key, fr, en, path, f, n){
+  const href = path ? tr(path) : tr(IDX);
+  const isDone = !!done[key];
+  return `<li class="m${isDone?" done":""}" data-k="${key}" data-f="${f||""}" data-s="${esc(norm(fr+" "+en))}">
+    <input type="checkbox" class="ck" aria-label="Terminée" ${isDone?"checked":""}>
+    ${n!=null?`<span class="num">${n}</span>`:""}
+    <a class="lnk" href="${href}" target="_blank" rel="noopener"><span class="t">${esc(fr)}</span>${badges(f)}<span class="en">${esc(en)}${path?"":" · soluce dans le sommaire des missions annexes"}</span></a>
+    <span class="go">›</span></li>`;
+}
+
+function renderMissions(){
+  let html = "";
+  CHAPTERS.forEach((c, ci) => {
+    let n = 0;
+    const items = c.m.map((m, i) => row(c.id+"-"+i, m[0], m[1], m[2], m[3], m[3].includes("o") ? "" : ++n)).join("");
+    html += `<details class="ch" data-ch="${c.id}" ${ci<2?"open":""}><summary><h2>${c.sub?`<span>${esc(c.sub)}</span>`:""}${esc(c.name)}</h2><span class="count" data-cnt></span><span class="arrow">›</span></summary><ul>${items}</ul></details>`;
+  });
+  document.getElementById("chapters").innerHTML = html;
+}
+
+function renderSides(){
+  let html = `<details class="ch" open><summary><h2><span>Missions annexes</span>Inconnus et détraqués</h2><span class="arrow">›</span></summary>
+  <div class="note" style="margin:0 16px 12px">Les missions sont regroupées par personnage. <b>🏆</b> = compte pour le trophée. Les noms restés en anglais n'ont pas encore de nom français confirmé.</div></details>`;
+  let lastCh = "";
+  SIDES.forEach((s, si) => {
+    if(s.ch !== lastCh){ html += `<div class="sub" style="border:0;padding:14px 4px 6px">${esc(s.ch)}</div>`; lastCh = s.ch; }
+    const tro = s.trophy===true ? " 🏆" : "";
+    const items = s.m.map((m, i) => row("s"+si+"-"+i, m[0], m[1], m[2], m[3]||"", null)).join("");
+    html += `<details class="ch"><summary><h2>${esc(s.who)}${tro}</h2><span class="count">${s.m.length} mission${s.m.length>1?"s":""}</span><span class="arrow">›</span></summary><ul>${items}</ul></details>`;
+  });
+  document.getElementById("sides").innerHTML = html;
+}
+
+function renderGuides(){
+  document.getElementById("guides").innerHTML = GUIDES.map((sec, i) =>
+    `<details class="ch" ${i===0?"open":""}><summary><h2>${esc(sec.t)}</h2><span class="count">${sec.g.length}</span><span class="arrow">›</span></summary><ul>${
+      sec.g.map(g => `<li class="m"><a class="lnk" href="${tr(g[2] ? g[1] : g[1], !!g[2])}" target="_blank" rel="noopener"><span class="t">${esc(g[0])}</span></a><span class="go">›</span></li>`).join("")
+    }</ul></details>`).join("");
+}
+
+// Filtres
+const filters = {J:false, L:false, hideopt:false, hidedone:false};
+let query = "";
+
+function apply(){
+  let total = 0, tdone = 0, visible = 0;
+  document.querySelectorAll("#chapters details.ch").forEach(d => {
+    let ct = 0, cd = 0, vis = 0;
+    d.querySelectorAll("li.m").forEach(li => {
+      const f = li.dataset.f, isDone = !!done[li.dataset.k];
+      const isOpt = f.split(" ").includes("o");
+      if(!isOpt){ ct++; if(isDone) cd++; }
+      let show = true;
+      if(query && !li.dataset.s.includes(query)) show = false;
+      if(filters.hideopt && isOpt) show = false;
+      if(filters.hidedone && isDone) show = false;
+      const hasJ = f.split(" ").includes("J"), hasL = f.split(" ").includes("L");
+      if(filters.J && !filters.L && hasL) show = false;
+      if(filters.L && !filters.J && hasJ) show = false;
+      li.classList.toggle("hide", !show);
+      if(show) vis++;
+    });
+    d.querySelector("[data-cnt]").textContent = cd + " / " + ct;
+    d.classList.toggle("hide", vis===0);
+    if(query && vis) d.open = true;
+    total += ct; tdone += cd; visible += vis;
+  });
+  const pct = total ? Math.round(tdone/total*100) : 0;
+  document.getElementById("pct").textContent = pct + " %";
+  document.getElementById("pcount").textContent = "· " + tdone + (tdone>1 ? " missions principales terminées" : " mission principale terminée") + " sur " + total;
+  document.getElementById("pbar").style.width = pct + "%";
+  document.getElementById("empty").style.display = visible ? "none" : "block";
+}
+
+document.addEventListener("change", e => {
+  if(!e.target.classList.contains("ck")) return;
+  const li = e.target.closest("li.m"), k = li.dataset.k;
+  if(e.target.checked) done[k] = 1; else delete done[k];
+  save();
+  document.querySelectorAll(`li.m[data-k="${k}"]`).forEach(x => { x.classList.toggle("done", !!done[k]); x.querySelector(".ck").checked = !!done[k]; });
+  apply();
+});
+document.querySelectorAll(".chip").forEach(b => b.addEventListener("click", () => {
+  const f = b.dataset.f; filters[f] = !filters[f]; b.classList.toggle("on", filters[f]); apply();
+}));
+document.getElementById("q").addEventListener("input", e => { query = norm(e.target.value.trim()); apply(); });
+
+// Onglets
+const TABS = [["missions","Histoire"],["annexes","Missions annexes"],["guides","Collectibles et guides"]];
+const tabsEl = document.getElementById("tabs");
+tabsEl.innerHTML = TABS.map((t,i) => `<button class="tab${i===0?" on":""}" data-v="${t[0]}">${t[1]}</button>`).join("");
+tabsEl.addEventListener("click", e => {
+  const b = e.target.closest(".tab"); if(!b) return;
+  tabsEl.querySelectorAll(".tab").forEach(x => x.classList.toggle("on", x===b));
+  TABS.forEach(t => document.getElementById("view-"+t[0]).classList.toggle("hide", t[0]!==b.dataset.v));
+  window.scrollTo({top: document.querySelector("header").offsetHeight - 10, behavior:"smooth"});
+});
+
+renderMissions(); renderSides(); renderGuides(); apply();
+</script>
+</body>
+</html>
