@@ -51,6 +51,9 @@ li.m.done .t{opacity:.45;text-decoration:line-through}
 .ck{appearance:none;-webkit-appearance:none;flex:0 0 22px;height:22px;border-radius:7px;border:2px solid var(--line);background:transparent;cursor:pointer;display:grid;place-content:center}
 .ck:checked{background:var(--cyan);border-color:var(--cyan)}
 .ck:checked::after{content:"✓";color:#12081f;font-weight:900;font-size:14px}
+.ck:indeterminate{border-color:var(--cyan)}
+.ck:indeterminate::after{content:"";width:10px;height:3px;border-radius:2px;background:var(--cyan)}
+.ckall{flex:0 0 26px;height:26px;border-radius:8px}
 .num{font-size:12px;color:var(--mute);width:22px;text-align:right;flex:0 0 auto}
 .lnk{flex:1;text-decoration:none;min-width:0}
 .t{font-weight:650;font-size:15px}
@@ -497,7 +500,7 @@ function renderMissions(){
   CHAPTERS.forEach((c, ci) => {
     let n = 0;
     const items = c.m.map((m, i) => row(c.id+"-"+i, m[0], m[1], m[2], m[3], m[3].includes("o") ? "" : ++n)).join("");
-    html += `<details class="ch" data-ch="${c.id}" ${ci<2?"open":""}><summary><h2>${c.sub?`<span>${esc(c.sub)}</span>`:""}${esc(c.name)}</h2><span class="count" data-cnt></span><span class="arrow">›</span></summary><ul>${items}</ul></details>`;
+    html += `<details class="ch" data-ch="${c.id}" ${ci<2?"open":""}><summary><input type="checkbox" class="ck ckall" aria-label="Cocher tout le chapitre"><h2>${c.sub?`<span>${esc(c.sub)}</span>`:""}${esc(c.name)}</h2><span class="count" data-cnt></span><span class="arrow">›</span></summary><ul>${items}</ul></details>`;
   });
   document.getElementById("chapters").innerHTML = html;
 }
@@ -510,7 +513,7 @@ function renderSides(){
     if(s.ch !== lastCh){ html += `<div class="sub" style="border:0;padding:14px 4px 6px">${esc(s.ch)}</div>`; lastCh = s.ch; }
     const tro = s.trophy===true ? " 🏆" : "";
     const items = s.m.map((m, i) => row("s"+si+"-"+i, m[0], m[1], m[2], m[3]||"", null)).join("");
-    html += `<details class="ch"><summary><h2>${esc(s.who)}${tro}</h2><span class="count">${s.m.length} mission${s.m.length>1?"s":""}</span><span class="arrow">›</span></summary><ul>${items}</ul></details>`;
+    html += `<details class="ch"><summary><input type="checkbox" class="ck ckall" aria-label="Cocher tout les missions"><h2>${esc(s.who)}${tro}</h2><span class="count">${s.m.length} mission${s.m.length>1?"s":""}</span><span class="arrow">›</span></summary><ul>${items}</ul></details>`;
   });
   document.getElementById("sides").innerHTML = html;
 }
@@ -554,10 +557,33 @@ function apply(){
   document.getElementById("pcount").textContent = "· " + tdone + (tdone>1 ? " missions principales terminées" : " mission principale terminée") + " sur " + total;
   document.getElementById("pbar").style.width = pct + "%";
   document.getElementById("empty").style.display = visible ? "none" : "block";
+  syncAll();
 }
 
+// Case de chapitre : coche ou décoche toutes ses missions
+function syncAll(){
+  document.querySelectorAll(".ckall").forEach(cb => {
+    const keys = [...cb.closest("details").querySelectorAll("li.m[data-k]")].map(li => li.dataset.k);
+    const n = keys.filter(k => done[k]).length;
+    cb.checked = keys.length > 0 && n === keys.length;
+    cb.indeterminate = n > 0 && n < keys.length;
+  });
+}
+function setDone(k, v){
+  if(v) done[k] = 1; else delete done[k];
+  document.querySelectorAll(`li.m[data-k="${k}"]`).forEach(x => { x.classList.toggle("done", v); x.querySelector(".ck").checked = v; });
+}
+document.addEventListener("click", e => {
+  const cb = e.target.closest(".ckall"); if(!cb) return;
+  e.preventDefault(); e.stopPropagation();   // ne pas ouvrir/fermer le chapitre
+  const keys = [...cb.closest("details").querySelectorAll("li.m[data-k]")].map(li => li.dataset.k);
+  const all = keys.every(k => done[k]);
+  keys.forEach(k => setDone(k, !all));
+  save(); apply();
+  setTimeout(syncAll, 0);
+});
 document.addEventListener("change", e => {
-  if(!e.target.classList.contains("ck")) return;
+  if(!e.target.classList.contains("ck") || e.target.classList.contains("ckall")) return;
   const li = e.target.closest("li.m"), k = li.dataset.k;
   if(e.target.checked) done[k] = 1; else delete done[k];
   save();
