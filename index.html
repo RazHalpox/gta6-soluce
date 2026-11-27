@@ -246,6 +246,7 @@ const CHAPTERS = [
   ["Shooting photo","Photo/Shoot","photoshoot-shoot-a-promo"+W,""],
   ["Vilain pilote !","Bad Driver!","bad-driver-find-felipe"+W,"o"],
   ["Assister à la fête d'Eddie Acosta","Attend Eddie Acosta's Party","attend-eddie-acostas-party"+W,"o S"],
+  ["Dre'Quan's Gift","Dre'Quan's Gift","drequans-gift"+W,"o","c4-drequan"],
   ["Prise de masse","Making Gainz","making-gainz"+W,"L H:Trafic aérien"],
   ["Sang, sueur et gros calibres","Blood Sweat and Gear","blood-sweat-and-gear-work-out"+W,"L H:Trafic aérien"],
   ["Bagage encombrant","Too Much Baggage","too-much-baggage-scope-out-the-airport"+W,"J H:Trafic aérien"],
@@ -296,7 +297,9 @@ const SIDES = [
   ["Récupérer le rhum de Shirley","Get Shirley's Rum","get-shirleys-rum"+W],
   ["Voler le scooter","Steal the Scooter","steal-the-scooter"+W]]},
  {who:"Kenton", ch:"Chapitre 1", trophy:null, m:[
-  ["Fouiller les sites de plongée","Search the Dive Sites",null]]},
+  ["Fouiller les sites de plongée","Search the Dive Sites","all-kenton-sets-locations-search-the-dive-sites/"],
+  ["Check in with Kenton","Check in with Kenton","check-in-with-kenton"+W],
+  ["Maritime Dispute","Maritime Dispute (Stop by Kenton's Shop)","maritime-dispute-stop-by-kentons-shop"+W]]},
  {who:"Cal", ch:"Chapitre 1", trophy:false, m:[
   ["Pêcher un poisson plus gros","Catch a Bigger Fish","catch-a-bigger-fish"+W]]},
  {who:"Kirk", ch:"Chapitre 1", trophy:true, m:[
@@ -339,7 +342,11 @@ const SIDES = [
   ["Braquages des prêteurs sur salaire avec Yasmani","Yasmani's Payday Loans Jobs",null],
   ["Suivre le fourgon de sécurité","Tail the Security Van",null]]},
  {who:"Randy", ch:"Chapitre 3", trophy:null, m:[
-  ["Liste de souhaits de Randy","Randy's Wish List",null]]},
+  ["Liste de souhaits de Randy","Randy's Wish List","randys-wish-list-car-locations"+W],
+  ["Dale Mamba","Dale Mamba (Steal the Declasse Mamba GT)","dale-mamba-steal-the-declasse-mamba-gt"+W],
+  ["Mansion Thrax","Mansion Thrax (Steal the Truffade Thrax)","mansion-thrax-steal-the-truffade-thrax"+W],
+  ["Delivery Day","Delivery Day (Meet Randy)","delivery-day-meet-randy"+W],
+  ["Collect the Tempesta","Collect the Tempesta","collect-the-tempesta"+W]]},
  {who:"Tyrone", ch:"Chapitre 3", trophy:false, m:[
   ["Détruire les labos de litière","Take Out Kitty Litter","all-kitty-litter-lab-locations/"],
   ["Spin On This","Spin On This","spin-on-this-shut-down-the-labs"+W]]},
@@ -365,7 +372,14 @@ const SIDES = [
  {who:"Dr Merle (No Flushers)", ch:"Tous chapitres", trophy:true, m:[
   ["The Final Flush","The Final Flush","the-final-flush-meet-at-franks-waffles"+W]]},
  {who:"Freddie", ch:"Tous chapitres", trophy:true, m:[
-  ["Retest Freddie's Defenses","Retest Freddie's Defenses","retest-freddies-defenses"+W]]}
+  ["Retest Freddie's Defenses","Retest Freddie's Defenses","retest-freddies-defenses"+W]]},
+ {who:"Dodos Rising (militants)", ch:"Tous chapitres", trophy:null, m:[
+  ["Bring Out the Chimp","Bring Out the Chimp (Help Save the Chimps)","bring-out-the-chimp-help-save-the-chimps"+W],
+  ["Sisters of the Sea","Sisters of the Sea (Help Free the Orca)","sisters-of-the-sea-help-free-the-orca"+W],
+  ["Twin Flames","Twin Flames (Shut Down the Fracking Site)","twin-flames-shut-down-the-fracking-site"+W],
+  ["Dodo Rise","Dodo Rise (Meet with the Dodos Contact)","dodo-rise-meet-with-the-dodos-contact"+W]]},
+ {who:"Scarlet", ch:"Tous chapitres", trophy:null, m:[
+  ["Scarlet Sun","Scarlet Sun (Return to Scarlet)","scarlet-sun-return-to-scarlet"+W]]}
 ];
 
 const GUIDES = [
@@ -506,8 +520,8 @@ function row(key, fr, en, path, f, n){
 function renderMissions(){
   let html = "";
   CHAPTERS.forEach((c, ci) => {
-    let n = 0;
-    const items = c.m.map((m, i) => row(c.id+"-"+i, m[0], m[1], m[2], m[3], m[3].includes("o") ? "" : ++n)).join("");
+    let n = 0, idx = 0;
+    const items = c.m.map(m => row(m[4] || c.id+"-"+(idx++), m[0], m[1], m[2], m[3], m[3].includes("o") ? "" : ++n)).join("");
     html += `<details class="ch" data-ch="${c.id}"><summary><input type="checkbox" class="ck ckall" aria-label="Cocher tout le chapitre"><h2>${c.sub?`<span>${esc(c.sub)}</span>`:""}${esc(c.name)}</h2><span class="count" data-cnt></span><span class="arrow">›</span></summary><ul>${items}</ul></details>`;
   });
   document.getElementById("chapters").innerHTML = html;
